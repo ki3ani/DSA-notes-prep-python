@@ -1,13 +1,18 @@
+# Define the Element class
 class Element(object):
     def __init__(self, value):
+        """Initialize an Element with its value and a next pointer set to None."""
         self.value = value
         self.next = None
 
+# Define the LinkedList class
 class LinkedList(object):
     def __init__(self, head=None):
+        """Initialize a LinkedList with a head Element if provided."""
         self.head = head
 
     def append(self, new_element):
+        """Append a new Element to the end of the LinkedList."""
         current = self.head
         if self.head:
             while current.next:
@@ -17,6 +22,11 @@ class LinkedList(object):
             self.head = new_element
 
     def get_position(self, position):
+        """
+        Get an Element from a particular position.
+        Assume the first position is "1".
+        Return "None" if position is not in the list.
+        """
         counter = 1
         current = self.head
         if position < 1:
@@ -29,6 +39,11 @@ class LinkedList(object):
         return None
 
     def insert(self, new_element, position):
+        """
+        Insert a new node at the given position.
+        Assume the first position is "1".
+        Inserting at position 3 means between the 2nd and 3rd elements.
+        """
         counter = 1
         current = self.head
         if position == 1:
@@ -43,6 +58,7 @@ class LinkedList(object):
                 counter += 1
 
     def delete(self, value):
+        """Delete the first node with a given value."""
         current = self.head
         previous = None
         while current.value != value and current.next:
